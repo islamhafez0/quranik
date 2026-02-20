@@ -1,0 +1,1177 @@
+{
+  "Ibrahim Al-Akdar": {
+    "id": 1,
+    "server": "https://server6.mp3quran.net/akdr/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Akram Alalaqmi": {
+    "id": 10,
+    "server": "https://server9.mp3quran.net/akrm/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Majed Al-Enezi": {
+    "id": 100,
+    "server": "https://server8.mp3quran.net/majd_onazi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Maher Al Meaqli": {
+    "id": 102,
+    "server": "https://server12.mp3quran.net/maher/Almusshaf-Al-Mojawwad/",
+    "moshaf_name": "Almusshaf Al Mojawwad - Almusshaf Al Mojawwad"
+  },
+  "Mohammad Al-Airawy": {
+    "id": 104,
+    "server": "https://server6.mp3quran.net/earawi/",
+    "moshaf_name": "Rewayat Warsh A'n Nafi' Men Tariq Alazraq - Murattal"
+  },
+  "Mohammed Al-Barrak": {
+    "id": 105,
+    "server": "https://server13.mp3quran.net/braak/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mohammad Al-Tablaway": {
+    "id": 106,
+    "server": "https://server12.mp3quran.net/tblawi/Al-Mojawwad/",
+    "moshaf_name": "Almusshaf Al Mojawwad - Almusshaf Al Mojawwad"
+  },
+  "Mohammed Al-Lohaidan": {
+    "id": 107,
+    "server": "https://server8.mp3quran.net/lhdan/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mohammed Al-Muhasny": {
+    "id": 108,
+    "server": "https://server11.mp3quran.net/mhsny/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mohammed Ayyub": {
+    "id": 109,
+    "server": "https://server16.mp3quran.net/ayyoub2/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - 4"
+  },
+  "Alhusayni Al-Azazi": {
+    "id": 11,
+    "server": "https://server8.mp3quran.net/3zazi/",
+    "moshaf_name": "Almusshaf Al Mo'lim - Almusshaf Al Mo'lim"
+  },
+  "Mohammad Saleh Alim Shah": {
+    "id": 110,
+    "server": "https://server12.mp3quran.net/shah/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mohammed Jibreel": {
+    "id": 111,
+    "server": "https://server8.mp3quran.net/jbrl/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mohammed Siddiq Al-Minshawi": {
+    "id": 112,
+    "server": "https://server10.mp3quran.net/minsh/Almusshaf-Al-Mo-lim/",
+    "moshaf_name": "Almusshaf Al Mo'lim - Almusshaf Al Mo'lim"
+  },
+  "Mohammad Abdullkarem": {
+    "id": 115,
+    "server": "https://server12.mp3quran.net/m_krm/Rewayat-Warsh-A-n-Nafi-Men-Tariq-Abi-Baker-Alasbahani/",
+    "moshaf_name": "Rewayat Warsh A'n Nafi' Men  Tariq Abi Baker Alasbahani - Murattal"
+  },
+  "Mohammad Al-Abdullah": {
+    "id": 116,
+    "server": "https://server9.mp3quran.net/abdullah/Rewayat-AlDorai-A-n-Al-Kisa-ai/",
+    "moshaf_name": "Rewayat AlDorai A'n Al-Kisa'ai - Murattal"
+  },
+  "Mahmoud Khalil Al-Hussary": {
+    "id": 118,
+    "server": "https://server13.mp3quran.net/husr/Rewayat-Qalon-A-n-Nafi/",
+    "moshaf_name": "Rewayat Qalon A'n Nafi' - Murattal"
+  },
+  "Idrees Abkr": {
+    "id": 12,
+    "server": "https://server6.mp3quran.net/abkr/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mahmoud Ali  Albanna": {
+    "id": 121,
+    "server": "https://server8.mp3quran.net/bna/Almusshaf-Al-Mojawwad/",
+    "moshaf_name": "Almusshaf Al Mojawwad - Almusshaf Al Mojawwad"
+  },
+  "Mishary Alafasi": {
+    "id": 123,
+    "server": "https://server8.mp3quran.net/afs/Rewayat-AlDorai-A-n-Al-Kisa-ai/",
+    "moshaf_name": "Rewayat AlDorai A'n Al-Kisa'ai - Murattal"
+  },
+  "Mustafa Ismail": {
+    "id": 125,
+    "server": "https://server8.mp3quran.net/mustafa/Almusshaf-Al-Mojawwad/",
+    "moshaf_name": "Almusshaf Al Mojawwad - Almusshaf Al Mojawwad"
+  },
+  "Mustafa Al-Lahoni": {
+    "id": 126,
+    "server": "https://server6.mp3quran.net/lahoni/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mustafa raad Alazawy": {
+    "id": 127,
+    "server": "https://server8.mp3quran.net/ra3ad/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Muamar (From Indonesia)": {
+    "id": 128,
+    "server": "https://server6.mp3quran.net/muamr/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Muftah Alsaltany": {
+    "id": 129,
+    "server": "https://server14.mp3quran.net/muftah_sultany/Rewayat_Ibn-Thakwan-A-n-Ibn-Amer/",
+    "moshaf_name": "Ibn Thakwan A'n Ibn Amer - Murattal"
+  },
+  "Alzain Mohammad Ahmad": {
+    "id": 13,
+    "server": "https://server9.mp3quran.net/alzain/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mohammad Saayed": {
+    "id": 134,
+    "server": "https://server16.mp3quran.net/m_sayed/Rewayat-Warsh-A-n-Nafi/",
+    "moshaf_name": "Rewayat Warsh A'n Nafi' - Murattal"
+  },
+  "Abdulrahman Alsuwayid": {
+    "id": 135,
+    "server": "https://server16.mp3quran.net/a_swaiyd/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulelah bin Aoun": {
+    "id": 136,
+    "server": "https://server16.mp3quran.net/a_binaoun/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ahmad Talib bin Humaid": {
+    "id": 137,
+    "server": "https://server16.mp3quran.net/a_binhameed/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Noreen Mohammad Siddiq": {
+    "id": 138,
+    "server": "https://server16.mp3quran.net/nourin_siddig/Rewayat-Aldori-A-n-Abi-Amr/",
+    "moshaf_name": "Rewayat Aldori A'n Abi Amr - Murattal"
+  },
+  "Majed Al-Zamil": {
+    "id": 139,
+    "server": "https://server9.mp3quran.net/zaml/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Al-Qaria Yassen": {
+    "id": 14,
+    "server": "https://server11.mp3quran.net/qari/",
+    "moshaf_name": "Rewayat Warsh A'n Nafi' - Murattal"
+  },
+  "Maher Shakhashero": {
+    "id": 149,
+    "server": "https://server10.mp3quran.net/shaksh/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Alashri Omran": {
+    "id": 15,
+    "server": "https://server9.mp3quran.net/omran/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mohammad AlMonshed": {
+    "id": 150,
+    "server": "https://server10.mp3quran.net/monshed/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mahmood AlSheimy": {
+    "id": 151,
+    "server": "https://server10.mp3quran.net/sheimy/",
+    "moshaf_name": "Rewayat AlDorai A'n Al-Kisa'ai - Murattal"
+  },
+  "Yasser Salamah": {
+    "id": 152,
+    "server": "https://server12.mp3quran.net/salamah/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Akhil Abdulhayy Rawa": {
+    "id": 153,
+    "server": "https://server12.mp3quran.net/malaysia/akil/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ustaz Zamri": {
+    "id": 154,
+    "server": "https://server12.mp3quran.net/malaysia/zamri/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Khalid Almohana": {
+    "id": 159,
+    "server": "https://server11.mp3quran.net/mohna/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Aloyoon Al-Koshi": {
+    "id": 16,
+    "server": "https://server11.mp3quran.net/koshi/",
+    "moshaf_name": "Rewayat Warsh A'n Nafi' - Murattal"
+  },
+  "Adel Al-Khalbany": {
+    "id": 160,
+    "server": "https://server8.mp3quran.net/a_klb/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mousa Bilal": {
+    "id": 161,
+    "server": "https://server11.mp3quran.net/bilal/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Hussain Alshaik": {
+    "id": 162,
+    "server": "https://server11.mp3quran.net/alshaik/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Hatem Fareed Alwaer": {
+    "id": 163,
+    "server": "https://server11.mp3quran.net/hatem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ibrahim Aljormy": {
+    "id": 164,
+    "server": "https://server11.mp3quran.net/jormy/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mahmood Al rifai": {
+    "id": 165,
+    "server": "https://server11.mp3quran.net/mrifai/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Nasser Al obaid": {
+    "id": 166,
+    "server": "https://server11.mp3quran.net/obaid/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Wasel Almethen": {
+    "id": 167,
+    "server": "https://server11.mp3quran.net/wasel/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Tawfeeq As-Sayegh": {
+    "id": 17,
+    "server": "https://server6.mp3quran.net/twfeeq/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ibrahim Aldosari": {
+    "id": 178,
+    "server": "https://server10.mp3quran.net/ibrahim_dosri/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Jamal Shaker Abdullah": {
+    "id": 18,
+    "server": "https://server6.mp3quran.net/jamal/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Jamaan Alosaimi": {
+    "id": 181,
+    "server": "https://server6.mp3quran.net/jaman/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Rodziah Abdulrahman": {
+    "id": 183,
+    "server": "https://server12.mp3quran.net/malaysia/rziah/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Rogayah Sulong": {
+    "id": 184,
+    "server": "https://server12.mp3quran.net/malaysia/rogiah/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Sapinah Mamat": {
+    "id": 185,
+    "server": "https://server12.mp3quran.net/malaysia/mamat/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Saidin Abdulrahman": {
+    "id": 187,
+    "server": "https://server12.mp3quran.net/malaysia/sideen/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulghani Abdullah": {
+    "id": 188,
+    "server": "https://server12.mp3quran.net/malaysia/abdulgani/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdullah Fahmi": {
+    "id": 189,
+    "server": "https://server12.mp3quran.net/malaysia/fhmi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Hamad Al Daghriri": {
+    "id": 19,
+    "server": "https://server6.mp3quran.net/hamad/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Muhammad Al-Hafiz": {
+    "id": 190,
+    "server": "https://server12.mp3quran.net/malaysia/hafz/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mohammed Hafas Ali": {
+    "id": 191,
+    "server": "https://server12.mp3quran.net/malaysia/hfs/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Muhammed Khairul Anuar": {
+    "id": 192,
+    "server": "https://server12.mp3quran.net/malaysia/nor/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Yousef Bin Noah Ahmad": {
+    "id": 193,
+    "server": "https://server8.mp3quran.net/noah/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Jamal Addeen Alzailaie": {
+    "id": 194,
+    "server": "https://server11.mp3quran.net/zilaie/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Moeedh Alharthi": {
+    "id": 197,
+    "server": "https://server8.mp3quran.net/harthi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mohammad Rashad Alshareef": {
+    "id": 198,
+    "server": "https://server10.mp3quran.net/rashad/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ibrahim Al-Jebreen": {
+    "id": 2,
+    "server": "https://server6.mp3quran.net/jbreen/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Khalid Al-Jileel": {
+    "id": 20,
+    "server": "https://server10.mp3quran.net/jleel/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ahmed Al-trabulsi": {
+    "id": 201,
+    "server": "https://server10.mp3quran.net/trabulsi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdullah Al-Kandari": {
+    "id": 202,
+    "server": "https://server10.mp3quran.net/Abdullahk/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ahmed Amer": {
+    "id": 203,
+    "server": "https://server10.mp3quran.net/Aamer/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ibrahem Assadan": {
+    "id": 204,
+    "server": "https://server10.mp3quran.net/IbrahemSadan/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ahmad Alhuthaifi": {
+    "id": 205,
+    "server": "https://server8.mp3quran.net/ahmad_huth/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mohammed Osman Khan": {
+    "id": 206,
+    "server": "https://server6.mp3quran.net/khan/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Youssef Edghouch": {
+    "id": 207,
+    "server": "https://server7.mp3quran.net/dgsh/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Addokali Mohammad Alalim": {
+    "id": 208,
+    "server": "https://server7.mp3quran.net/dokali/",
+    "moshaf_name": "Rewayat Qalon A'n Nafi' - Murattal"
+  },
+  "Wishear Hayder Arbili": {
+    "id": 209,
+    "server": "https://server11.mp3quran.net/wishear/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Khaled Al-Qahtani": {
+    "id": 21,
+    "server": "https://server10.mp3quran.net/qht/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Alfateh Alzubair": {
+    "id": 211,
+    "server": "https://server6.mp3quran.net/fateh/",
+    "moshaf_name": "Rewayat Aldori A'n Abi Amr - Murattal"
+  },
+  "عبدالله القرافي": {
+    "id": 21136,
+    "server": "https://server16.mp3quran.net/a_alqrafi/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulbadi Ghailan": {
+    "id": 21148,
+    "server": "https://server16.mp3quran.net/A-Ghailan/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Muhammad Burhaji": {
+    "id": 21181,
+    "server": "https://server16.mp3quran.net/M_Burhaji/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Yusuf ALaidroos": {
+    "id": 21182,
+    "server": "https://server16.mp3quran.net/Y_ALaidroos/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - 4"
+  },
+  "Hassan Aldaghriri": {
+    "id": 21183,
+    "server": "https://server16.mp3quran.net/H-Aldaghriri/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Muhammad Al Faqih": {
+    "id": 21184,
+    "server": "https://server16.mp3quran.net/M_Alfaqih/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Junaid Adam Abdullah": {
+    "id": 21186,
+    "server": "https://server16.mp3quran.net/J-Abdullah/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Alwaleed Alshamsan": {
+    "id": 21188,
+    "server": "https://server14.mp3quran.net/shamsan/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ibrahim Al-Shahri": {
+    "id": 21191,
+    "server": "https://server16.mp3quran.net/Ibrahim-Al-Shahri/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdul Rahman bin Abdul Razzaq Al Badr": {
+    "id": 21193,
+    "server": "https://server16.mp3quran.net/A-AlBadr/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Tareq Abdulgani daawob": {
+    "id": 212,
+    "server": "https://server10.mp3quran.net/tareq/",
+    "moshaf_name": "Rewayat Qalon A'n Nafi' - Murattal"
+  },
+  "Othman Al-Ansary": {
+    "id": 216,
+    "server": "https://server11.mp3quran.net/Othmn/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Bandar Balilah": {
+    "id": 217,
+    "server": "https://server6.mp3quran.net/balilah/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Khalid Al-Shoraimy": {
+    "id": 218,
+    "server": "https://server12.mp3quran.net/shoraimy/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Wadeea Al-Yamani": {
+    "id": 219,
+    "server": "https://server6.mp3quran.net/wdee3/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Khalid Abdulkafi": {
+    "id": 22,
+    "server": "https://server11.mp3quran.net/kafi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Raad Al Kurdi": {
+    "id": 221,
+    "server": "https://server6.mp3quran.net/kurdi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulrahman Aloosi": {
+    "id": 225,
+    "server": "https://server6.mp3quran.net/aloosi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Khalid Algamdi": {
+    "id": 226,
+    "server": "https://server6.mp3quran.net/ghamdi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ramadan Shakoor": {
+    "id": 227,
+    "server": "https://server6.mp3quran.net/shakoor/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulmajeed Al-Arkani": {
+    "id": 228,
+    "server": "https://server7.mp3quran.net/m_arkani/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mohammad Khalil Al-Qari": {
+    "id": 229,
+    "server": "https://server8.mp3quran.net/m_qari/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Khalid Al-Wehabi": {
+    "id": 23,
+    "server": "https://server11.mp3quran.net/whabi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Rami Aldeais": {
+    "id": 230,
+    "server": "https://server6.mp3quran.net/rami/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Hazza Al-Balushi": {
+    "id": 231,
+    "server": "https://server11.mp3quran.net/hazza/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulrahman Al-Majed": {
+    "id": 236,
+    "server": "https://server10.mp3quran.net/a_majed/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Marwan Alakri": {
+    "id": 237,
+    "server": "https://server16.mp3quran.net/m_akri/Rewayat-Qalon-A-n-Nafi/",
+    "moshaf_name": "Rewayat Qalon A'n Nafi' - Murattal"
+  },
+  "Khalifa Altunaiji": {
+    "id": 24,
+    "server": "https://server12.mp3quran.net/tnjy/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Salman Alotaibi": {
+    "id": 240,
+    "server": "https://server11.mp3quran.net/salman/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mohammad Refat": {
+    "id": 241,
+    "server": "https://server14.mp3quran.net/refat/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdullah Al-Mousa": {
+    "id": 243,
+    "server": "https://server14.mp3quran.net/mousa/Almusshaf-Al-Mo-lim/",
+    "moshaf_name": "Almusshaf Al Mo'lim - Almusshaf Al Mo'lim"
+  },
+  "Abdullah Al-Khalaf": {
+    "id": 244,
+    "server": "https://server14.mp3quran.net/khalf/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mansour Al-Salemi": {
+    "id": 245,
+    "server": "https://server14.mp3quran.net/mansor/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Salah Musali": {
+    "id": 246,
+    "server": "https://server14.mp3quran.net/musali/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Khalid Alsharekh": {
+    "id": 247,
+    "server": "https://server14.mp3quran.net/sharekh/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Nasser Alosfor": {
+    "id": 248,
+    "server": "https://server14.mp3quran.net/alosfor/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Dawood Hamza": {
+    "id": 25,
+    "server": "https://server9.mp3quran.net/hamza/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mohammad Albukheet": {
+    "id": 250,
+    "server": "https://server14.mp3quran.net/bukheet/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Nasser Almajed": {
+    "id": 251,
+    "server": "https://server14.mp3quran.net/nasser_almajed/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ahmed Al-Swailem": {
+    "id": 252,
+    "server": "https://server14.mp3quran.net/swlim/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Islam Sobhi": {
+    "id": 253,
+    "server": "https://server14.mp3quran.net/islam/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Bader Alturki": {
+    "id": 254,
+    "server": "https://server10.mp3quran.net/bader/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Hitham Aljadani": {
+    "id": 255,
+    "server": "https://server16.mp3quran.net/hitham/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ahmad Shaheen": {
+    "id": 256,
+    "server": "https://server16.mp3quran.net/shaheen/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Saad Almqren": {
+    "id": 257,
+    "server": "https://server16.mp3quran.net/saad/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ahmad Al Nufais": {
+    "id": 259,
+    "server": "https://server16.mp3quran.net/nufais/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Rasheed Ifrad": {
+    "id": 26,
+    "server": "https://server12.mp3quran.net/ifrad/",
+    "moshaf_name": "Rewayat Warsh A'n Nafi' - Murattal"
+  },
+  "Omar Al Darweez": {
+    "id": 260,
+    "server": "https://server16.mp3quran.net/darweez/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulaziz Alasiri": {
+    "id": 263,
+    "server": "https://server16.mp3quran.net/abdulazizasiri/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Younes Souilass": {
+    "id": 264,
+    "server": "https://server16.mp3quran.net/souilass/Rewayat-Warsh-A-n-Nafi/",
+    "moshaf_name": "Rewayat Warsh A'n Nafi' - Murattal"
+  },
+  "Ahmad Deban": {
+    "id": 265,
+    "server": "https://server16.mp3quran.net/deban/Rewayat-Ibn-Jammaz-A-n-Abi-Ja-far/",
+    "moshaf_name": "Ibn Jammaz A'n Abi Ja'far - Murattal"
+  },
+  "Abdullah Kamel": {
+    "id": 267,
+    "server": "https://server16.mp3quran.net/kamel/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Peshawa Qadr Al-Kurdi": {
+    "id": 268,
+    "server": "https://server16.mp3quran.net/peshawa/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Rachid Belalya": {
+    "id": 27,
+    "server": "https://server6.mp3quran.net/bl3/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Nathier Almalki": {
+    "id": 271,
+    "server": "https://server16.mp3quran.net//nathier/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Okasha Kameny": {
+    "id": 272,
+    "server": "https://server16.mp3quran.net/okasha/Rewayat-Albizi-A-n-Ibn-Katheer/",
+    "moshaf_name": "Rewayat Albizi A'n Ibn Katheer - Murattal"
+  },
+  "Haitham Aldukhain": {
+    "id": 273,
+    "server": "https://server16.mp3quran.net/h_dukhain/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - 4"
+  },
+  "Muhammad Abu Sneina": {
+    "id": 274,
+    "server": "https://server16.mp3quran.net/sneineh/Rewayat-Qalon-A-n-Nafi/",
+    "moshaf_name": "Rewayat Qalon A'n Nafi' - Murattal"
+  },
+  "Mohammed Al-Amin Qeniwa": {
+    "id": 275,
+    "server": "https://server16.mp3quran.net/qeniwa/Rewayat-Qalon-A-n-Nafi/",
+    "moshaf_name": "Rewayat Qalon A'n Nafi' - Murattal"
+  },
+  "Mahmoud Abdul Hakam": {
+    "id": 277,
+    "server": "https://server16.mp3quran.net/m_abdelhakam/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ahmad Issa Al Maasaraawi": {
+    "id": 278,
+    "server": "https://server16.mp3quran.net/a_maasaraawi/Rewayat-Rawh-A-n-Yakoob-Alhadrami/",
+    "moshaf_name": "Rewayat Rowis and Rawh A'n Yakoob Al Hadrami  - Murattal"
+  },
+  "Ibrahim Kshidan": {
+    "id": 279,
+    "server": "https://server16.mp3quran.net/i_kshidan/Rewayat-Qalon-A-n-Nafi/",
+    "moshaf_name": "Rewayat Qalon A'n Nafi' - Murattal"
+  },
+  "Zakaria Hamamah": {
+    "id": 28,
+    "server": "https://server9.mp3quran.net/zakariya/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Hashim Abu Dalal": {
+    "id": 280,
+    "server": "https://server16.mp3quran.net/h_abudalal/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Fouad Alkhamery": {
+    "id": 281,
+    "server": "https://server16.mp3quran.net/f_khamery/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Sayed Ahmad Hashemi": {
+    "id": 282,
+    "server": "https://server16.mp3quran.net/s_hashemi/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Khalid Mohammadi": {
+    "id": 283,
+    "server": "https://server16.mp3quran.net/kh_mohammadi/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mal-Allah Abdulrhman Aljaber": {
+    "id": 284,
+    "server": "https://server16.mp3quran.net/mal-allah_jaber/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Salman Alsadeiq": {
+    "id": 285,
+    "server": "https://server16.mp3quran.net/s_sadeiq/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Hasan Saleh": {
+    "id": 286,
+    "server": "https://server16.mp3quran.net/h_saleh/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulrahman Alshahhat": {
+    "id": 287,
+    "server": "https://server16.mp3quran.net/a_alshahhat/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Issa Omar Sanankoua": {
+    "id": 288,
+    "server": "https://server16.mp3quran.net/i_sanankoua/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Haroon Baqai": {
+    "id": 289,
+    "server": "https://server16.mp3quran.net/h_baqai/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdullah Bukhari": {
+    "id": 29,
+    "server": "https://server16.mp3quran.net/a_bukhari/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Saleh Alquraishi": {
+    "id": 290,
+    "server": "https://server16.mp3quran.net/s_alquraishi/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ibrahim Al-Asiri": {
+    "id": 3,
+    "server": "https://server6.mp3quran.net/3siri/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Saad Al-Ghamdi": {
+    "id": 30,
+    "server": "https://server7.mp3quran.net/s_gmd/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Saleh Alshamrani": {
+    "id": 300,
+    "server": "https://server16.mp3quran.net/shamrani/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Faisal Al-Hajry": {
+    "id": 301,
+    "server": "https://server16.mp3quran.net/f_hajry/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Anas Alemadi": {
+    "id": 302,
+    "server": "https://server16.mp3quran.net/a_alemadi/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulmalik Alaskar": {
+    "id": 303,
+    "server": "https://server16.mp3quran.net/a_alaskar/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulkareem Alhazmi": {
+    "id": 304,
+    "server": "https://server16.mp3quran.net/a_alhazmi/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Hicham Lharraz": {
+    "id": 305,
+    "server": "https://server16.mp3quran.net/H-Lharraz/Rewayat-Warsh-A-n-Nafi/",
+    "moshaf_name": "Rewayat Warsh A'n Nafi' - Murattal"
+  },
+  "Abdullah Al-Mishal": {
+    "id": 306,
+    "server": "https://server16.mp3quran.net/a-almishal/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdelaziz sheim": {
+    "id": 307,
+    "server": "https://server16.mp3quran.net/a_sheim/Rewayat-Warsh-A-n-Nafi/",
+    "moshaf_name": "Rewayat Warsh A'n Nafi' - Murattal"
+  },
+  "Saud Al-Shuraim": {
+    "id": 31,
+    "server": "https://server7.mp3quran.net/shur/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Sahl Yassin": {
+    "id": 32,
+    "server": "https://server6.mp3quran.net/shl/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Zaki Daghistani": {
+    "id": 33,
+    "server": "https://server9.mp3quran.net/zaki/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Sami Al-Hasn": {
+    "id": 34,
+    "server": "https://server8.mp3quran.net/sami_hsn/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Sami Al-Dosari": {
+    "id": 35,
+    "server": "https://server8.mp3quran.net/sami_dosr/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Sayeed Ramadan": {
+    "id": 36,
+    "server": "https://server12.mp3quran.net/sayed/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Shaban Al-Sayiaad": {
+    "id": 37,
+    "server": "https://server11.mp3quran.net/shaban/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Shirazad Taher": {
+    "id": 38,
+    "server": "https://server12.mp3quran.net/taher/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Saber Abdulhakm": {
+    "id": 39,
+    "server": "https://server12.mp3quran.net/hkm/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Shaik Abu Bakr Al Shatri": {
+    "id": 4,
+    "server": "https://server11.mp3quran.net/shatri/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Saleh Alsahood": {
+    "id": 40,
+    "server": "https://server8.mp3quran.net/sahood/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Saleh Al-Talib": {
+    "id": 41,
+    "server": "https://server9.mp3quran.net/tlb/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Saleh Al-Habdan": {
+    "id": 42,
+    "server": "https://server6.mp3quran.net/habdan/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Salah Albudair": {
+    "id": 43,
+    "server": "https://server6.mp3quran.net/s_bud/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Salah Alhashim": {
+    "id": 44,
+    "server": "https://server12.mp3quran.net/salah_hashim_m/Rewayat-Qalon-A-n-Nafi/",
+    "moshaf_name": "Rewayat Qalon A'n Nafi' - Murattal"
+  },
+  "Slaah Bukhatir": {
+    "id": 46,
+    "server": "https://server8.mp3quran.net/bu_khtr/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Mukhtar Al-Haj": {
+    "id": 47,
+    "server": "https://server16.mp3quran.net/mukhtar_haj/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Adel Ryyan": {
+    "id": 48,
+    "server": "https://server8.mp3quran.net/ryan/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdelbari Al-Toubayti": {
+    "id": 49,
+    "server": "https://server6.mp3quran.net/thubti/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ahmad Al-Ajmy": {
+    "id": 5,
+    "server": "https://server10.mp3quran.net/ajm/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulbari Mohammad": {
+    "id": 50,
+    "server": "https://server12.mp3quran.net/bari/Almusshaf-Al-Mo-lim/",
+    "moshaf_name": "Almusshaf Al Mo'lim - Almusshaf Al Mo'lim"
+  },
+  "Abdulbasit Abdulsamad": {
+    "id": 51,
+    "server": "https://server7.mp3quran.net/basit/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulrahman Alsudaes": {
+    "id": 54,
+    "server": "https://server11.mp3quran.net/sds/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdul Aziz Al-Ahmad": {
+    "id": 55,
+    "server": "https://server11.mp3quran.net/a_ahmed/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulaziz Az-Zahrani": {
+    "id": 56,
+    "server": "https://server9.mp3quran.net/zahrani/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdullah Al-Burimi": {
+    "id": 57,
+    "server": "https://server8.mp3quran.net/brmi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdullah Albuajan": {
+    "id": 58,
+    "server": "https://server8.mp3quran.net/buajan/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdullah Al-Mattrod": {
+    "id": 59,
+    "server": "https://server8.mp3quran.net/mtrod/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ahmad Al-Hawashi": {
+    "id": 6,
+    "server": "https://server11.mp3quran.net/hawashi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdullah Basfer": {
+    "id": 60,
+    "server": "https://server6.mp3quran.net/bsfr/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdullah Khayyat": {
+    "id": 61,
+    "server": "https://server12.mp3quran.net/kyat/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdullah Al-Johany": {
+    "id": 62,
+    "server": "https://server13.mp3quran.net/jhn/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdullah Qaulan": {
+    "id": 63,
+    "server": "https://server8.mp3quran.net/gulan/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulrasheed Soufi": {
+    "id": 64,
+    "server": "https://server16.mp3quran.net/soufi/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulmohsin Al-Harthy": {
+    "id": 66,
+    "server": "https://server6.mp3quran.net/mohsin_harthi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulmohsen Al-Qasim": {
+    "id": 67,
+    "server": "https://server8.mp3quran.net/qasm/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulmohsin Al-Askar": {
+    "id": 68,
+    "server": "https://server6.mp3quran.net/askr/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulmohsin Al-Obaikan": {
+    "id": 69,
+    "server": "https://server12.mp3quran.net/obk/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ahmad Saud": {
+    "id": 7,
+    "server": "https://server11.mp3quran.net/saud/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulhadi Kanakeri": {
+    "id": 70,
+    "server": "https://server6.mp3quran.net/kanakeri/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulwadood Haneef": {
+    "id": 71,
+    "server": "https://server8.mp3quran.net/wdod/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulwali Al-Arkani": {
+    "id": 72,
+    "server": "https://server6.mp3quran.net/arkani/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ali Abo-Hashim": {
+    "id": 73,
+    "server": "https://server9.mp3quran.net/abo_hashim/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ali Alhuthaifi": {
+    "id": 74,
+    "server": "https://server9.mp3quran.net/hthfi/Rewayat-Sho-bah-A-n-Asim/",
+    "moshaf_name": "Sho'bah A'n Asim - Murattal"
+  },
+  "Ali Jaber": {
+    "id": 76,
+    "server": "https://server11.mp3quran.net/a_jbr/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ali Hajjaj Alsouasi": {
+    "id": 77,
+    "server": "https://server9.mp3quran.net/hajjaj/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Emad Hafez": {
+    "id": 78,
+    "server": "https://server6.mp3quran.net/hafz/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdulaziz Alturki": {
+    "id": 79,
+    "server": "https://server16.mp3quran.net/a_turki/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ahmad Saber": {
+    "id": 8,
+    "server": "https://server8.mp3quran.net/saber/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Omar Al-Qazabri": {
+    "id": 80,
+    "server": "https://server9.mp3quran.net/omar_warsh/",
+    "moshaf_name": "Rewayat Warsh A'n Nafi' - Murattal"
+  },
+  "Fares Abbad": {
+    "id": 81,
+    "server": "https://server8.mp3quran.net/frs_a/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Fahad Al-Otaibi": {
+    "id": 82,
+    "server": "https://server8.mp3quran.net/fahad_otibi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Fahad Al-Kandari": {
+    "id": 83,
+    "server": "https://server11.mp3quran.net/kndri/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Fawaz Alkabi": {
+    "id": 84,
+    "server": "https://server8.mp3quran.net/fawaz/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Lafi Al-Oni": {
+    "id": 85,
+    "server": "https://server6.mp3quran.net/lafi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Nasser Alqatami": {
+    "id": 86,
+    "server": "https://server6.mp3quran.net/qtm/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Nabil Al Rifay": {
+    "id": 87,
+    "server": "https://server9.mp3quran.net/nabil/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Neamah Al-Hassan": {
+    "id": 88,
+    "server": "https://server8.mp3quran.net/namh/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Hani Arrifai": {
+    "id": 89,
+    "server": "https://server8.mp3quran.net/hani/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Ahmad Nauina": {
+    "id": 9,
+    "server": "https://server11.mp3quran.net/ahmad_nu/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Walid Al-Dulaimi": {
+    "id": 90,
+    "server": "https://server8.mp3quran.net/dlami/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Waleed Alnaehi": {
+    "id": 91,
+    "server": "https://server9.mp3quran.net/waleed/",
+    "moshaf_name": "Rewayat Qalon A'n Nafi' Men Tariq Abi Nasheet - Murattal"
+  },
+  "Yasser Al-Dosari": {
+    "id": 92,
+    "server": "https://server11.mp3quran.net/yasser/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Yasser Al-Qurashi": {
+    "id": 93,
+    "server": "https://server9.mp3quran.net/qurashi/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Yasser Al-Faylakawi": {
+    "id": 94,
+    "server": "https://server6.mp3quran.net/fyl/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Yasser Al-Mazroyee": {
+    "id": 95,
+    "server": "https://server9.mp3quran.net/mzroyee/",
+    "moshaf_name": "Rewayat Rowis and Rawh A'n Yakoob Al Hadrami  - Murattal"
+  },
+  "Yahya Hawwa": {
+    "id": 96,
+    "server": "https://server12.mp3quran.net/yahya/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Yousef Alshoaey": {
+    "id": 97,
+    "server": "https://server9.mp3quran.net/yousef/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  },
+  "Abdullah Abdal": {
+    "id": 98,
+    "server": "https://server16.mp3quran.net/a_abdl/Rewayat-Hafs-A-n-Assem/",
+    "moshaf_name": "Rewayat Hafs A'n Assem - Murattal"
+  }
+}
