@@ -16,8 +16,8 @@ export const useReciters = () => {
 
                 return {
                     identifier: `mp3quran-${r.id}`,
-                    name: r.name, // Using the English name from the field
-                    englishName: r.name,
+                    name: r.name_ar || r.name, // Use Arabic name
+                    englishName: r.name_en || r.name,
                     format: 'audio',
                     language: 'ar',
                     type: 'audio',
