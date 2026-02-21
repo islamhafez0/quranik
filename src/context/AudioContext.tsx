@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useRef, useEffect, useCallback } from 'react';
 import type { Surah, Reciter } from '../types/quran';
+import { useSurahs } from '../hooks/useSurahs';
 
 interface AudioContextType {
     isPlaying: boolean;
@@ -36,7 +37,18 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
     const [volume, setVolume] = useState(Number(localStorage.getItem('quran_volume')) || 0.7);
     const [playbackSpeed, setPlaybackSpeed] = useState(1);
 
+    const { surahs } = useSurahs();
+
     const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    // Using a ref to always have access to the latest surahs and nowPlaying inside the event listener
+    const surahsRef = useRef(surahs);
+    const nowPlayingRef = useRef(nowPlaying);
+
+    useEffect(() => {
+        surahsRef.current = surahs;
+        nowPlayingRef.current = nowPlaying;
+    }, [surahs, nowPlaying]);
 
     useEffect(() => {
         audioRef.current = new Audio();
@@ -74,6 +86,27 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
         const handleEnded = () => {
             setIsPlaying(false);
             localStorage.setItem('quran_currentTime', '0');
+
+            // Auto play next Surah logic
+            const currentSurahs = surahsRef.current;
+            const currentNowPlaying = nowPlayingRef.current;
+
+            if (currentSurahs && currentSurahs.length > 0 && currentNowPlaying) {
+                const nextSurah = currentSurahs.find(s => s.number === (currentNowPlaying.number % 114) + 1);
+                if (nextSurah && currentReciter) {
+                    const url = `${currentReciter.serverUrl}${nextSurah.number.toString().padStart(3, '0')}.mp3`;
+                    setNowPlaying(nextSurah);
+                    localStorage.setItem('quran_nowPlaying', JSON.stringify(nextSurah));
+                    setCurrentTime(0);
+
+                    audio.src = url;
+                    audio.play();
+                    setIsPlaying(true);
+                    if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'playing';
+                    return; // Exit early so we don't pause the media session
+                }
+            }
+
             if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused';
         };
 
@@ -196,11 +229,21 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
 
     const nextSurah = useCallback(() => {
         if (!nowPlaying) return;
-    }, [nowPlaying]);
+        const currentSurahs = surahsRef.current;
+        if (!currentSurahs || currentSurahs.length === 0) return;
+
+        const next = currentSurahs.find(s => s.number === (nowPlaying.number !== 114 ? nowPlaying.number + 1 : 1));
+        if (next) playSurah(next);
+    }, [nowPlaying, playSurah]);
 
     const prevSurah = useCallback(() => {
         if (!nowPlaying) return;
-    }, [nowPlaying]);
+        const currentSurahs = surahsRef.current;
+        if (!currentSurahs || currentSurahs.length === 0) return;
+
+        const prev = currentSurahs.find(s => s.number === (nowPlaying.number !== 1 ? nowPlaying.number - 1 : 114));
+        if (prev) playSurah(prev);
+    }, [nowPlaying, playSurah]);
 
     const value = {
         isPlaying, nowPlaying, currentReciter, currentTime, duration, volume,

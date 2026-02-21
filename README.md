@@ -1,73 +1,55 @@
-# React + TypeScript + Vite
+# Quranik
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Quranik is a modern, responsive single-page application (SPA) built to stream Quranic recitations. It provides a seamless, gapless audio experience, allowing users to browse Surahs, search efficiently in Arabic or English, select from various reciters, and listen to high-quality audio without interruptions.
 
-Currently, two official plugins are available:
+## Features
+- **Gapless Audio Playback**: Streams full-Surah MP3s from MP3Quran directly via HTML5 Audio, ensuring no delays between verses.
+- **Auto-Play Next Surah**: Automatically transitions to the next Surah when the current one finishes.
+- **Robust Arabic Search**: Advanced text normalization algorithm that ignores Harakat (diacritics), Tatweel, and varied Alef/Hamza forms, allowing users to find Surahs easily even with imperfect Arabic typing (e.g., typing "سوره الفاتحه" matches "سُورَةُ ٱلْفَاتِحَةِ").
+- **Multiple Reciters**: Choose from a vast library of over 230 reciters (data sourced from MP3Quran).
+- **Offline Ready PWA**: Can be installed as a Progressive Web App for quick access.
+- **Bilingual Interface**: Supports both English and Arabic UI with RTL layout support.
+- **Persistent State**: Remembers your selected reciter, volume, and last played position across sessions.
+- **Media Session Integration**: Control playback natively from your device lock screen or hardware media keys.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **Framework**: React 19 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS v4 + Framer Motion (Animations)
+- **State Management**: React Context API (`AudioContext`, `LanguageContext`)
+- **Data Fetching**: Custom hooks (`useSurahs`, `useReciters`) fetching from Al Quran Cloud and local JSON.
+- **List Virtualization**: `react-virtuoso` for 60fps rendering of the Surah list.
 
-## React Compiler
+## Architecture & APIs
+The application uses a pure Client-Side Rendering (CSR) architecture and interfaces with:
+- **Al Quran Cloud API** (`api.alquran.cloud`): For Surah metadata (names, ayah counts, revelation types).
+- **MP3Quran CDN** (`server8.mp3quran.net`): For streaming audio and fetching reciter metadata.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Audio state is centralized in `AudioContext.tsx`, which attaches native browser event listeners (`timeupdate`, `ended`) to a single underlying `<audio>` element to manage gapless playback and auto-advancement.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Build for production:
+   ```bash
+   npm run build
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## License
+MIT License

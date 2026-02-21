@@ -9,6 +9,7 @@ import { Header } from './components/Header'
 import { SurahCard } from './components/SurahCard'
 import { BottomPlayer } from './components/BottomPlayer'
 import { Virtuoso } from 'react-virtuoso'
+import { normalizeArabic } from './utils/text'
 
 const MainApp = () => {
   const [search, setSearch] = useState('')
@@ -16,7 +17,8 @@ const MainApp = () => {
   const { reciters } = useReciters()
   const {
     isPlaying, nowPlaying, currentTime, duration,
-    currentReciter, playSurah, togglePlay, seek, setReciter, setVolume, volume
+    currentReciter, playSurah, togglePlay, seek, setReciter, setVolume, volume,
+    nextSurah, prevSurah
   } = useAudio()
 
   const { t, language } = useLanguage()
@@ -36,24 +38,16 @@ const MainApp = () => {
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const filtered = useMemo(() =>
-    surahs.filter(s =>
+  const filtered = useMemo(() => {
+    const normSearch = normalizeArabic(search.toLowerCase());
+    return surahs.filter(s =>
       s.englishName.toLowerCase().includes(search.toLowerCase()) ||
-      s.name.includes(search) ||
+      normalizeArabic(s.name).includes(normSearch) ||
       String(s.number) === search
-    ), [surahs, search])
+    );
+  }, [surahs, search])
 
-  const handleNext = () => {
-    if (!nowPlaying) return
-    const next = surahs.find(s => s.number === (nowPlaying.number % 114) + 1)
-    if (next) playSurah(next)
-  }
 
-  const handlePrev = () => {
-    if (!nowPlaying) return
-    const prev = surahs.find(s => s.number === (nowPlaying.number === 1 ? 114 : nowPlaying.number - 1))
-    if (prev) playSurah(prev)
-  }
 
   return (
     <div className="min-h-screen flex flex-col font-sans selection:bg-emerald-500/30">
@@ -139,8 +133,8 @@ const MainApp = () => {
         duration={duration}
         volume={volume}
         togglePlay={togglePlay}
-        handleNext={handleNext}
-        handlePrev={handlePrev}
+        handleNext={nextSurah}
+        handlePrev={prevSurah}
         seek={seek}
         setVolume={setVolume}
       />
