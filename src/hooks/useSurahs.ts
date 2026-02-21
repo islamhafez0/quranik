@@ -1,30 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import type { Surah } from '../types/quran';
 
 export const useSurahs = () => {
-    const [surahs, setSurahs] = useState<Surah[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-
-    useEffect(() => {
-        const fetchSurahs = async () => {
-            try {
-                const response = await fetch('https://api.alquran.cloud/v1/surah');
-                const data = await response.json();
-                if (data.code === 200) {
-                    setSurahs(data.data);
-                } else {
-                    setError('Failed to fetch surahs');
-                }
-            } catch (err) {
-                setError('An error occurred while fetching surahs');
-            } finally {
-                setLoading(false);
+    const {
+        data: surahs = [],
+        isLoading: loading,
+        error: queryError
+    } = useQuery<Surah[], Error>({
+        queryKey: ['surahs'],
+        queryFn: async () => {
+            const response = await fetch('https://api.alquran.cloud/v1/surah');
+            const data = await response.json();
+            if (data.code === 200) {
+                return data.data;
+            } else {
+                throw new Error('Failed to fetch surahs');
             }
-        };
+        },
+        staleTime: 1000 * 60 * 60 * 24, // Cache for 24 hours (Surah list never changes)
+    });
 
-        fetchSurahs();
-    }, []);
+    const error = queryError ? 'An error occurred while fetching surahs' : null;
 
     return { surahs, loading, error };
 };

@@ -1,144 +1,17 @@
-import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Search, ChevronDown, Check, Play, Pause, SkipBack, SkipForward, Volume2, Globe } from 'lucide-react'
+import { useState, useMemo, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { Search } from 'lucide-react'
 import { useSurahs } from './hooks/useSurahs'
 import { useReciters } from './hooks/useReciters'
 import { AudioProvider, useAudio } from './context/AudioContext'
 import { LanguageProvider, useLanguage } from './context/LanguageContext'
-import { formatTime } from './utils/formatTime'
 import type { Reciter } from './types/quran'
 
-/* ═══════════════════════════════════════
-   Searchable Reciter Combobox
-   ═══════════════════════════════════════ */
-const ReciterCombobox = ({ reciters, selected, onSelect }: {
-  reciters: Reciter[]
-  selected: Reciter | null
-  onSelect: (r: Reciter) => void
-}) => {
-  const [open, setOpen] = useState(false)
-  const [query, setQuery] = useState('')
-  const [highlightIdx, setHighlightIdx] = useState(0)
-  const ref = useRef<HTMLDivElement>(null)
-  const inputRef = useRef<HTMLInputElement>(null)
-  const { t, language } = useLanguage()
-
-  const filtered = useMemo(() =>
-    query
-      ? reciters.filter(r => {
-        const searchSpace = language === 'ar' ? r.name : r.englishName;
-        return searchSpace.toLowerCase().includes(query.toLowerCase());
-      })
-      : reciters
-    , [reciters, query, language])
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
-    }
-    document.addEventListener('mousedown', handler)
-    return () => document.removeEventListener('mousedown', handler)
-  }, [])
-
-  const selectItem = useCallback((r: Reciter) => {
-    onSelect(r)
-    setOpen(false)
-    setQuery('')
-  }, [onSelect])
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'ArrowDown') {
-      e.preventDefault()
-      setHighlightIdx(i => Math.min(i + 1, filtered.length - 1))
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault()
-      setHighlightIdx(i => Math.max(i - 1, 0))
-    } else if (e.key === 'Enter' && filtered[highlightIdx]) {
-      selectItem(filtered[highlightIdx])
-    } else if (e.key === 'Escape') {
-      setOpen(false)
-    }
-  }
-
-  // Active Reciter Name based on current language
-  const reciterLabel = selected
-    ? (language === 'ar' ? selected.name : selected.englishName)
-    : t('reciter.select');
-
-  return (
-    <div ref={ref} className="relative z-50">
-      <button
-        onClick={() => { setOpen(!open); setTimeout(() => inputRef.current?.focus(), 50) }}
-        className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:bg-white/5 border border-white/10 bg-white/5 backdrop-blur-md cursor-pointer group"
-      >
-        <div className="w-5 h-5 shrink-0 rounded-full bg-emerald-500/20 flex items-center justify-center">
-          <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 group-hover:animate-pulse" />
-        </div>
-        <span className="truncate max-w-[140px] text-zinc-300 group-hover:text-white transition-colors">{reciterLabel}</span>
-        <ChevronDown className={`w-4 h-4 shrink-0 text-zinc-500 transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
-      </button>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className={`absolute top-full mt-3 w-80 rounded-2xl overflow-hidden glass-panel z-50 ${language === 'ar' ? 'left-0 origin-top-left' : 'right-0 origin-top-right'}`}
-          >
-            <div className="p-3 border-b border-white/5">
-              <div className="relative">
-                <Search className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={query}
-                  onChange={e => { setQuery(e.target.value); setHighlightIdx(0) }}
-                  onKeyDown={handleKeyDown}
-                  placeholder={t('reciter.search')}
-                  className="w-full text-sm rounded-xl ps-9 pe-4 py-2 bg-black/40 text-zinc-200 border border-white/5 outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all placeholder:text-zinc-600"
-                />
-              </div>
-            </div>
-
-            <div className="combobox-list py-2">
-              {filtered.length === 0 && (
-                <div className="p-8 text-center flex flex-col items-center justify-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
-                    <Search className="w-5 h-5 text-zinc-600" />
-                  </div>
-                  <p className="text-sm text-zinc-500">{t('reciter.empty')}</p>
-                </div>
-              )}
-              {filtered.map((r, i) => {
-                const rName = language === 'ar' ? r.name : r.englishName;
-                return (
-                  <button
-                    key={r.identifier}
-                    onClick={() => selectItem(r)}
-                    className={`w-full text-start px-5 py-3 text-sm flex items-center justify-between transition-colors
-                            ${i === highlightIdx ? 'bg-white/5' : 'hover:bg-white/5'}
-                        `}
-                  >
-                    <span className={`truncate ${selected?.identifier === r.identifier ? 'text-emerald-400 font-medium' : 'text-zinc-300'}`}>
-                      {rName}
-                    </span>
-                    {selected?.identifier === r.identifier && (
-                      <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="shrink-0 ms-2">
-                        <Check className="w-4 h-4 text-emerald-500" />
-                      </motion.div>
-                    )}
-                  </button>
-                )
-              })}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  )
-}
+// Components
+import { Header } from './components/Header'
+import { SurahCard } from './components/SurahCard'
+import { BottomPlayer } from './components/BottomPlayer'
+import { Virtuoso } from 'react-virtuoso'
 
 /* ═══════════════════════════════════════
    Main App
@@ -152,7 +25,7 @@ const MainApp = () => {
     currentReciter, playSurah, togglePlay, seek, setReciter, setVolume, volume
   } = useAudio()
 
-  const { t, language, setLanguage } = useLanguage()
+  const { t, language } = useLanguage()
 
   useEffect(() => {
     if (currentReciter) {
@@ -176,8 +49,6 @@ const MainApp = () => {
       s.name.includes(search) ||
       String(s.number) === search
     ), [surahs, search])
-
-  const progress = duration ? (currentTime / duration) * 100 : 0
 
   const handleNext = () => {
     if (!nowPlaying) return
@@ -208,29 +79,7 @@ const MainApp = () => {
   return (
     <div className="min-h-screen flex flex-col font-sans selection:bg-emerald-500/30">
 
-      {/* ═══ Header ═══ */}
-      <header className="glass-nav sticky top-0 z-30 px-6 py-4 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
-            <div className="absolute inset-0 bg-emerald-500 blur-[20px] opacity-20 rounded-full" />
-            <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-sm font-bold text-zinc-950 shadow-lg shadow-emerald-500/20">
-              Q
-            </div>
-          </div>
-          <span className="text-xl font-bold tracking-tight text-white/90 hidden sm:block">Quranik</span>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:bg-white/5 border border-white/10 bg-white/5 cursor-pointer text-zinc-300 hover:text-white"
-          >
-            <Globe className="w-4 h-4 opacity-70" />
-            <span className="uppercase text-xs font-bold tracking-widest">{language}</span>
-          </button>
-          <ReciterCombobox reciters={reciters} selected={currentReciter} onSelect={setReciter} />
-        </div>
-      </header>
+      <Header reciters={reciters} currentReciter={currentReciter} setReciter={setReciter} />
 
       {/* ═══ Main Content Container ═══ */}
       <main className="flex-1 max-w-4xl w-full mx-auto px-6 pt-8 pb-40">
@@ -282,165 +131,48 @@ const MainApp = () => {
             </button>
           </div>
         ) : (
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="show"
-            className="grid gap-3"
+          <div
+            className="flex-1 w-full"
           >
-            {filtered.map(surah => {
-              const active = nowPlaying?.number === surah.number
-              return (
-                <motion.button
-                  variants={itemVariants}
-                  key={surah.number}
-                  onClick={() => playSurah(surah)}
-                  className={`surah-card group flex items-center gap-5 w-full text-start rounded-2xl px-5 py-4 cursor-pointer relative overflow-hidden ${active ? 'active' : ''}`}
-                >
-                  {/* Number / Playing indicator */}
-                  <div className="w-10 h-10 shrink-0 flex items-center justify-center rounded-xl bg-black/20 border border-white/5 group-hover:bg-black/40 transition-colors relative">
-                    {active && isPlaying ? (
-                      <div className="audio-bars">
-                        <div className="audio-bar" />
-                        <div className="audio-bar" />
-                        <div className="audio-bar" />
-                      </div>
-                    ) : (
-                      <span className={`text-sm font-semibold ${active ? 'text-emerald-400' : 'text-zinc-500 group-hover:text-zinc-300'}`}>
-                        {surah.number}
-                      </span>
-                    )}
+            <div className="pb-40 min-h-screen">
+              <Virtuoso
+                useWindowScroll
+                data={filtered}
+                itemContent={(_index, surah) => (
+                  <div className="pb-3 px-1">
+                    <SurahCard
+                      surah={surah}
+                      active={nowPlaying?.number === surah.number}
+                      isPlaying={isPlaying}
+                      onClick={() => playSurah(surah)}
+                    />
                   </div>
+                )}
+              />
 
-                  {/* Info */}
-                  <div className="flex-1 min-w-0">
-                    <p className={`text-base font-semibold truncate transition-colors ${active ? 'text-emerald-400' : 'text-zinc-200 group-hover:text-white'} ${language === 'ar' ? 'font-arabic text-xl' : ''}`}>
-                      {language === 'ar' ? surah.name : surah.englishName}
-                    </p>
-                    <div className="flex items-center gap-2 mt-0.5 text-xs text-zinc-500">
-                      <span className="truncate">{surah.englishNameTranslation}</span>
-                      <span>•</span>
-                      <span>{surah.numberOfAyahs} {t('surah.ayahs')}</span>
-                      <span>•</span>
-                      <span>{t(`surah.${surah.revelationType}`)}</span>
-                    </div>
-                  </div>
-
-                  {/* Decorative Arabic Name on trailing edge (if English interface) */}
-                  {language === 'en' && (
-                    <span className={`font-arabic text-2xl shrink-0 ${active ? 'text-emerald-400' : 'text-zinc-700 group-hover:text-zinc-500'} transition-colors`}>
-                      {surah.name}
-                    </span>
-                  )}
-                </motion.button>
-              )
-            })}
-            {filtered.length === 0 && (
-              <div className="text-center py-20 text-zinc-500">
-                {t('search.empty')} "{search}"
-              </div>
-            )}
-          </motion.div>
+              {filtered.length === 0 && (
+                <div className="text-center py-20 text-zinc-500">
+                  {t('search.empty')} "{search}"
+                </div>
+              )}
+            </div>
+          </div>
         )}
       </main>
 
-      {/* ═══ Bottom Player Dock ═══ */}
-      <AnimatePresence>
-        {nowPlaying && (
-          <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 100, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-2xl z-40"
-          >
-            <div className="glass-dock rounded-3xl overflow-hidden shadow-2xl shadow-emerald-900/20">
-
-              {/* Top Progress Bar */}
-              <div
-                className="h-1.5 bg-black/40 cursor-pointer relative group"
-                onClick={e => {
-                  const rect = e.currentTarget.getBoundingClientRect()
-                  const clickX = language === 'ar' ? (rect.right - e.clientX) : (e.clientX - rect.left);
-                  const pct = Math.max(0, Math.min(1, clickX / rect.width))
-                  seek(pct * duration)
-                }}
-              >
-                <div
-                  className={`absolute top-0 start-0 h-full bg-gradient-to-r from-emerald-500 to-emerald-400 transition-[width] duration-100 ease-linear ${language === 'ar' ? 'origin-right' : 'origin-left'}`}
-                  style={{ width: `${progress}%` }}
-                />
-                {/* Interactive thumb on hover */}
-                <div
-                  className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{ [language === 'ar' ? 'right' : 'left']: `calc(${progress}% - 6px)` }}
-                />
-              </div>
-
-              <div className="px-6 py-4 flex items-center justify-between gap-6">
-                {/* Info Section */}
-                <div className="flex items-center gap-4 flex-1 min-w-0">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-900/40 flex items-center justify-center border border-emerald-500/20 shrink-0">
-                    <span className={`font-arabic text-xl ${isPlaying ? 'text-emerald-400' : 'text-zinc-400'}`}>
-                      {nowPlaying.name}
-                    </span>
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className={`text-base font-semibold text-white truncate ${language === 'ar' ? 'font-arabic text-lg' : ''}`}>
-                      {language === 'ar' ? nowPlaying.name : nowPlaying.englishName}
-                    </p>
-                    <p className="text-xs text-emerald-400/80 truncate mt-0.5">
-                      {currentReciter ? (language === 'ar' ? currentReciter.name : currentReciter.englishName) : ''}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Controls */}
-                <div className="flex flex-col items-center gap-1">
-                  <div className={`flex items-center gap-4 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
-                    <button onClick={handlePrev} className="p-2 text-zinc-400 hover:text-white transition-colors rounded-full hover:bg-white/5 cursor-pointer">
-                      <SkipBack className="w-5 h-5 fill-current" />
-                    </button>
-
-                    <button
-                      onClick={togglePlay}
-                      className="w-12 h-12 rounded-full bg-white text-zinc-950 flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-lg shadow-white/10 cursor-pointer"
-                    >
-                      {isPlaying ? (
-                        <Pause className="w-6 h-6 fill-current" />
-                      ) : (
-                        <Play className={`w-6 h-6 fill-current ${language === 'ar' ? 'me-1' : 'ms-1'}`} />
-                      )}
-                    </button>
-
-                    <button onClick={handleNext} className="p-2 text-zinc-400 hover:text-white transition-colors rounded-full hover:bg-white/5 cursor-pointer">
-                      <SkipForward className="w-5 h-5 fill-current" />
-                    </button>
-                  </div>
-                  <div className="text-[10px] font-mono text-zinc-500 tabular-nums">
-                    {formatTime(currentTime)} / {formatTime(duration)}
-                  </div>
-                </div>
-
-                {/* Extra Controls (Volume hidden on mobile, useful on desktop) */}
-                <div className="hidden md:flex items-center gap-3 flex-1 justify-end">
-                  <Volume2 className="w-4 h-4 text-zinc-500" />
-                  <div className="w-24 h-1.5 rounded-full bg-black/40 overflow-hidden relative cursor-pointer group"
-                    onClick={e => {
-                      const rect = e.currentTarget.getBoundingClientRect()
-                      const clickX = language === 'ar' ? (rect.right - e.clientX) : (e.clientX - rect.left);
-                      const v = Math.max(0, Math.min(1, clickX / rect.width))
-                      setVolume(v)
-                    }}
-                  >
-                    <div className="absolute top-0 start-0 h-full bg-zinc-400 transition-all group-hover:bg-emerald-400" style={{ width: `${volume * 100}%` }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <BottomPlayer
+        nowPlaying={nowPlaying}
+        currentReciter={currentReciter}
+        isPlaying={isPlaying}
+        currentTime={currentTime}
+        duration={duration}
+        volume={volume}
+        togglePlay={togglePlay}
+        handleNext={handleNext}
+        handlePrev={handlePrev}
+        seek={seek}
+        setVolume={setVolume}
+      />
     </div>
   )
 }

@@ -36,13 +36,53 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
         audioRef.current = new Audio();
         const audio = audioRef.current;
 
-        const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
-        const handleLoadedMetadata = () => setDuration(audio.duration);
-        const handleEnded = () => setIsPlaying(false);
+        const handleTimeUpdate = () => {
+            setCurrentTime(audio.currentTime)
+            // Sync media session position state for supported browsers
+            if ('mediaSession' in navigator && audio.duration && audio.currentTime) {
+                try {
+                    navigator.mediaSession.setPositionState({
+                        duration: audio.duration,
+                        playbackRate: audio.playbackRate,
+                        position: audio.currentTime
+                    });
+                } catch { /* Ignore for old browsers */ }
+            }
+        };
+
+        const handleLoadedMetadata = () => {
+            setDuration(audio.duration)
+        };
+
+        const handleEnded = () => {
+            setIsPlaying(false)
+            if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused';
+        };
 
         audio.addEventListener('timeupdate', handleTimeUpdate);
         audio.addEventListener('loadedmetadata', handleLoadedMetadata);
         audio.addEventListener('ended', handleEnded);
+
+        // Media Session controls
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.setActionHandler('play', () => {
+                audio.play();
+                setIsPlaying(true);
+                navigator.mediaSession.playbackState = 'playing';
+            });
+            navigator.mediaSession.setActionHandler('pause', () => {
+                audio.pause();
+                setIsPlaying(false);
+                navigator.mediaSession.playbackState = 'paused';
+            });
+            navigator.mediaSession.setActionHandler('seekto', (details) => {
+                if (details.fastSeek && 'fastSeek' in audio) {
+                    audio.fastSeek(details.seekTime || 0);
+                    return;
+                }
+                audio.currentTime = details.seekTime || 0;
+            });
+        }
 
         return () => {
             audio.removeEventListener('timeupdate', handleTimeUpdate);
@@ -65,6 +105,20 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
         }
     }, [playbackSpeed]);
 
+    // Update Media Session Metadata when track changes
+    useEffect(() => {
+        if ('mediaSession' in navigator && nowPlaying && currentReciter) {
+            navigator.mediaSession.metadata = new MediaMetadata({
+                title: nowPlaying.englishName, // Can't conditionally hook language simply here unless we import LanguageContext, so we fallback to englishName for universal OS support
+                artist: currentReciter.englishName,
+                album: 'Holy Quran',
+                artwork: [
+                    { src: '/quran-icon.png', sizes: '512x512', type: 'image/png' } // Assuming there's a favicon or we can add one later
+                ]
+            });
+        }
+    }, [nowPlaying, currentReciter]);
+
     const playSurah = useCallback((surah: Surah) => {
         if (!audioRef.current || !currentReciter?.serverUrl) return;
 
@@ -74,9 +128,11 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
             if (isPlaying) {
                 audioRef.current.pause();
                 setIsPlaying(false);
+                if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused';
             } else {
                 audioRef.current.play();
                 setIsPlaying(true);
+                if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'playing';
             }
             return;
         }
@@ -85,6 +141,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
         audioRef.current.src = url;
         audioRef.current.play();
         setIsPlaying(true);
+        if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'playing';
     }, [nowPlaying, isPlaying, currentReciter]);
 
     const togglePlay = useCallback(() => {
@@ -92,9 +149,11 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
         if (isPlaying) {
             audioRef.current.pause();
             setIsPlaying(false);
+            if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused';
         } else {
             audioRef.current.play();
             setIsPlaying(true);
+            if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'playing';
         }
     }, [isPlaying]);
 

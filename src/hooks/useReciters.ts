@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import type { Reciter } from '../types/quran';
 import recitersData from '../data/reciters.json';
 
 export const useReciters = () => {
-    const [reciters, setReciters] = useState<Reciter[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-
-    useEffect(() => {
-        try {
+    const {
+        data: reciters = [],
+        isLoading: loading,
+        error: queryError
+    } = useQuery<Reciter[], Error>({
+        queryKey: ['reciters'],
+        queryFn: async () => {
             // Map mp3quran data to our Reciter interface
             const mappedReciters: Reciter[] = recitersData.reciters.map((r: any) => {
                 // Find standard moshaf (Murattal Hafs - type 11) or just pick first
@@ -25,17 +26,13 @@ export const useReciters = () => {
                 };
             });
 
-            // Sort alphabetically by name
-            mappedReciters.sort((a, b) => a.englishName.localeCompare(b.englishName));
+            // Sort alphabetically by englishName for consistency
+            return mappedReciters.sort((a, b) => a.englishName.localeCompare(b.englishName));
+        },
+        staleTime: Infinity, // Local JSON data never goes stale
+    });
 
-            setReciters(mappedReciters);
-        } catch (err) {
-            console.error('Error loading reciters:', err);
-            setError('Failed to load the reciter library');
-        } finally {
-            setLoading(false);
-        }
-    }, []);
+    const error = queryError ? 'Failed to load the reciter library' : null;
 
     return { reciters, loading, error };
 };
