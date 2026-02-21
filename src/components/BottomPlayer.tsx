@@ -65,7 +65,7 @@ export const BottomPlayer = ({
 
                         <div className="px-6 py-4 flex items-center justify-between gap-6">
                             <div className="flex items-center gap-4 flex-1 min-w-0">
-                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-900/40 flex items-center justify-center border border-emerald-500/20 shrink-0">
+                                <div className="text-center w-16 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-900/40 flex items-center justify-center border border-emerald-500/20 shrink-0">
                                     <span className={`font-arabic text-xl ${isPlaying ? 'text-emerald-400' : 'text-zinc-400'}`}>
                                         {nowPlaying.name}
                                     </span>
