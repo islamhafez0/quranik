@@ -1,21 +1,15 @@
 import { useState, useMemo, useEffect } from 'react'
-import { motion } from 'framer-motion'
 import { Search } from 'lucide-react'
 import { useSurahs } from './hooks/useSurahs'
 import { useReciters } from './hooks/useReciters'
 import { AudioProvider, useAudio } from './context/AudioContext'
 import { LanguageProvider, useLanguage } from './context/LanguageContext'
 import type { Reciter } from './types/quran'
-
-// Components
 import { Header } from './components/Header'
 import { SurahCard } from './components/SurahCard'
 import { BottomPlayer } from './components/BottomPlayer'
 import { Virtuoso } from 'react-virtuoso'
 
-/* ═══════════════════════════════════════
-   Main App
-   ═══════════════════════════════════════ */
 const MainApp = () => {
   const [search, setSearch] = useState('')
   const { surahs, loading: surahsLoading, error: surahsError } = useSurahs()
@@ -37,9 +31,8 @@ const MainApp = () => {
     const saved = localStorage.getItem('quranik_reciter')
     if (saved) {
       try {
-        const parsed = JSON.parse(saved) as Reciter
-        setReciter(parsed)
-      } catch { /* ignore */ }
+        setReciter(JSON.parse(saved) as Reciter)
+      } catch { /* noop */ }
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -62,29 +55,11 @@ const MainApp = () => {
     if (prev) playSurah(prev)
   }
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.05 }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 300, damping: 24 } }
-  }
-
   return (
     <div className="min-h-screen flex flex-col font-sans selection:bg-emerald-500/30">
-
       <Header reciters={reciters} currentReciter={currentReciter} setReciter={setReciter} />
 
-      {/* ═══ Main Content Container ═══ */}
       <main className="flex-1 max-w-4xl w-full mx-auto px-6 pt-8 pb-40">
-
-        {/* Title & Search Section */}
         <div className="mb-10 text-center space-y-6">
           <div className={`space-y-2 ${language === 'ar' ? 'font-arabic' : ''}`}>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90">
@@ -112,7 +87,6 @@ const MainApp = () => {
           </div>
         </div>
 
-        {/* ═══ Surah List ═══ */}
         {surahsLoading ? (
           <div className="space-y-3">
             {Array.from({ length: 10 }).map((_, i) => (
@@ -131,9 +105,7 @@ const MainApp = () => {
             </button>
           </div>
         ) : (
-          <div
-            className="flex-1 w-full"
-          >
+          <div className="flex-1 w-full">
             <div className="pb-40 min-h-screen">
               <Virtuoso
                 useWindowScroll
@@ -149,7 +121,6 @@ const MainApp = () => {
                   </div>
                 )}
               />
-
               {filtered.length === 0 && (
                 <div className="text-center py-20 text-zinc-500">
                   {t('search.empty')} "{search}"
@@ -182,7 +153,7 @@ function App() {
     try {
       const saved = localStorage.getItem('quranik_reciter')
       if (saved) return JSON.parse(saved) as Reciter
-    } catch { /* ignore */ }
+    } catch { /* noop */ }
     return {
       identifier: 'mp3quran-123',
       name: 'مشاري العفاسي',

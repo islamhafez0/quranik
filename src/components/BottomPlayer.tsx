@@ -44,7 +44,6 @@ export const BottomPlayer = ({
                 >
                     <div className="glass-dock rounded-3xl overflow-hidden shadow-2xl shadow-emerald-900/20">
 
-                        {/* Top Progress Bar */}
                         <div
                             className="h-1.5 bg-black/40 cursor-pointer relative group"
                             onClick={e => {
@@ -58,7 +57,6 @@ export const BottomPlayer = ({
                                 className={`absolute top-0 start-0 h-full bg-gradient-to-r from-emerald-500 to-emerald-400 transition-[width] duration-100 ease-linear ${language === 'ar' ? 'origin-right' : 'origin-left'}`}
                                 style={{ width: `${progress}%` }}
                             />
-                            {/* Interactive thumb on hover */}
                             <div
                                 className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity"
                                 style={{ [language === 'ar' ? 'right' : 'left']: `calc(${progress}% - 6px)` }}
@@ -66,7 +64,6 @@ export const BottomPlayer = ({
                         </div>
 
                         <div className="px-6 py-4 flex items-center justify-between gap-6">
-                            {/* Info Section */}
                             <div className="flex items-center gap-4 flex-1 min-w-0">
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-900/40 flex items-center justify-center border border-emerald-500/20 shrink-0">
                                     <span className={`font-arabic text-xl ${isPlaying ? 'text-emerald-400' : 'text-zinc-400'}`}>
@@ -83,7 +80,6 @@ export const BottomPlayer = ({
                                 </div>
                             </div>
 
-                            {/* Controls */}
                             <div className="flex flex-col items-center gap-1">
                                 <div className={`flex items-center gap-4 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
                                     <button onClick={handlePrev} className="p-2 text-zinc-400 hover:text-white transition-colors rounded-full hover:bg-white/5 cursor-pointer">
@@ -110,7 +106,6 @@ export const BottomPlayer = ({
                                 </div>
                             </div>
 
-                            {/* Extra Controls (Volume hidden on mobile, useful on desktop) */}
                             <div className="hidden md:flex items-center gap-3 flex-1 justify-end">
                                 <Volume2 className="w-4 h-4 text-zinc-500" />
                                 <div className="w-24 h-1.5 rounded-full bg-black/40 overflow-hidden relative cursor-pointer group"

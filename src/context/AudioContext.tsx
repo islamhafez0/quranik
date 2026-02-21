@@ -23,9 +23,15 @@ const AudioContext = createContext<AudioContextType | undefined>(undefined);
 
 export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter: Reciter | null }> = ({ children, initialReciter }) => {
     const [isPlaying, setIsPlaying] = useState(false);
-    const [nowPlaying, setNowPlaying] = useState<Surah | null>(null);
+    const [nowPlaying, setNowPlaying] = useState<Surah | null>(() => {
+        const saved = localStorage.getItem('quran_nowPlaying');
+        return saved ? JSON.parse(saved) : null;
+    });
     const [currentReciter, setCurrentReciter] = useState<Reciter | null>(initialReciter);
-    const [currentTime, setCurrentTime] = useState(0);
+    const [currentTime, setCurrentTime] = useState(() => {
+        const saved = localStorage.getItem('quran_currentTime');
+        return saved ? Number(saved) : 0;
+    });
     const [duration, setDuration] = useState(0);
     const [volume, setVolume] = useState(Number(localStorage.getItem('quran_volume')) || 0.7);
     const [playbackSpeed, setPlaybackSpeed] = useState(1);
@@ -36,9 +42,15 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
         audioRef.current = new Audio();
         const audio = audioRef.current;
 
+        if (nowPlaying && currentReciter) {
+            audio.src = `${currentReciter.serverUrl}${nowPlaying.number.toString().padStart(3, '0')}.mp3`;
+        }
+
         const handleTimeUpdate = () => {
-            setCurrentTime(audio.currentTime)
-            // Sync media session position state for supported browsers
+            setCurrentTime(audio.currentTime);
+            if (audio.currentTime > 0 && Math.floor(audio.currentTime) % 5 === 0) {
+                localStorage.setItem('quran_currentTime', audio.currentTime.toString());
+            }
             if ('mediaSession' in navigator && audio.duration && audio.currentTime) {
                 try {
                     navigator.mediaSession.setPositionState({
@@ -46,16 +58,22 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
                         playbackRate: audio.playbackRate,
                         position: audio.currentTime
                     });
-                } catch { /* Ignore for old browsers */ }
+                } catch { /* noop */ }
             }
         };
 
         const handleLoadedMetadata = () => {
-            setDuration(audio.duration)
+            setDuration(audio.duration);
+            const savedTime = Number(localStorage.getItem('quran_currentTime') || 0);
+            if (savedTime > 0 && audio.currentTime === 0) {
+                audio.currentTime = savedTime;
+                setCurrentTime(savedTime);
+            }
         };
 
         const handleEnded = () => {
-            setIsPlaying(false)
+            setIsPlaying(false);
+            localStorage.setItem('quran_currentTime', '0');
             if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused';
         };
 
@@ -63,7 +81,6 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
         audio.addEventListener('loadedmetadata', handleLoadedMetadata);
         audio.addEventListener('ended', handleEnded);
 
-        // Media Session controls
         if ('mediaSession' in navigator) {
             navigator.mediaSession.setActionHandler('play', () => {
                 audio.play();
@@ -105,16 +122,13 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
         }
     }, [playbackSpeed]);
 
-    // Update Media Session Metadata when track changes
     useEffect(() => {
         if ('mediaSession' in navigator && nowPlaying && currentReciter) {
             navigator.mediaSession.metadata = new MediaMetadata({
-                title: nowPlaying.englishName, // Can't conditionally hook language simply here unless we import LanguageContext, so we fallback to englishName for universal OS support
+                title: nowPlaying.englishName,
                 artist: currentReciter.englishName,
                 album: 'Holy Quran',
-                artwork: [
-                    { src: '/quran-icon.png', sizes: '512x512', type: 'image/png' } // Assuming there's a favicon or we can add one later
-                ]
+                artwork: [{ src: '/pwa-512x512.png', sizes: '512x512', type: 'image/png' }]
             });
         }
     }, [nowPlaying, currentReciter]);
@@ -138,6 +152,10 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
         }
 
         setNowPlaying(surah);
+        localStorage.setItem('quran_nowPlaying', JSON.stringify(surah));
+        localStorage.setItem('quran_currentTime', '0');
+        setCurrentTime(0);
+
         audioRef.current.src = url;
         audioRef.current.play();
         setIsPlaying(true);
@@ -161,12 +179,12 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
         if (audioRef.current) {
             audioRef.current.currentTime = time;
             setCurrentTime(time);
+            localStorage.setItem('quran_currentTime', time.toString());
         }
     }, []);
 
     const setReciter = useCallback((r: Reciter) => {
         setCurrentReciter(r);
-        // If something is playing, we might want to restart it with the new reciter
         if (nowPlaying && isPlaying && audioRef.current) {
             const url = `${r.serverUrl}${nowPlaying.number.toString().padStart(3, '0')}.mp3`;
             const savedTime = audioRef.current.currentTime;
@@ -185,21 +203,9 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
     }, [nowPlaying]);
 
     const value = {
-        isPlaying,
-        nowPlaying,
-        currentReciter,
-        currentTime,
-        duration,
-        volume,
-        playbackSpeed,
-        playSurah,
-        togglePlay,
-        seek,
-        setVolume,
-        setPlaybackSpeed,
-        setReciter,
-        nextSurah,
-        prevSurah
+        isPlaying, nowPlaying, currentReciter, currentTime, duration, volume,
+        playbackSpeed, playSurah, togglePlay, seek, setVolume, setPlaybackSpeed,
+        setReciter, nextSurah, prevSurah
     };
 
     return <AudioContext.Provider value={value}>{children}</AudioContext.Provider>;
