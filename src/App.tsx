@@ -53,7 +53,7 @@ const MainApp = () => {
     <div className="min-h-screen flex flex-col font-sans selection:bg-emerald-500/30">
       <Header reciters={reciters} currentReciter={currentReciter} setReciter={setReciter} />
 
-      <main className="flex-1 max-w-4xl w-full mx-auto px-6 pt-8 pb-40">
+      <main className="flex-1 max-w-4xl w-full mx-auto px-2 md:px-6 pt-8 pb-40">
         <div className="mb-10 text-center space-y-6">
           <div className={`space-y-2 ${language === 'ar' ? 'font-arabic' : ''}`}>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90">

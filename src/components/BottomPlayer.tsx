@@ -40,9 +40,9 @@ export const BottomPlayer = ({
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 100, opacity: 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-2xl z-40"
+                    className="fixed bottom-6 left-1/2 -translate-x-1/2 w-full md:w-[calc(100%-3rem)] max-w-2xl z-40"
                 >
-                    <div className="glass-dock rounded-3xl overflow-hidden shadow-2xl shadow-emerald-900/20">
+                    <div className="glass-dock md:rounded-3xl overflow-hidden shadow-2xl shadow-emerald-900/20">
 
                         <div
                             className="h-1.5 bg-black/40 cursor-pointer relative group"
@@ -63,7 +63,7 @@ export const BottomPlayer = ({
                             />
                         </div>
 
-                        <div className="px-6 py-4 flex items-center justify-between gap-6">
+                        <div className="px-2 md:px-6 py-4 flex items-center justify-between gap-4 md:gap-6">
                             <div className="flex items-center gap-4 flex-1 min-w-0">
                                 <div className="text-center w-16 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-900/40 flex items-center justify-center border border-emerald-500/20 shrink-0">
                                     <span className={`font-arabic text-xl ${isPlaying ? 'text-emerald-400' : 'text-zinc-400'}`}>

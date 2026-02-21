@@ -1,4 +1,4 @@
-import { Globe } from 'lucide-react'
+import { Globe, Github } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 import { ReciterCombobox } from './ReciterCombobox'
 import type { Reciter } from '../types/quran'
@@ -25,6 +25,16 @@ export const Header = ({
             </div>
 
             <div className="flex items-center gap-3">
+                <a
+                    href="https://github.com/islamhafez0/quranik"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:bg-white/5 border border-white/10 bg-white/5 cursor-pointer text-zinc-300 hover:text-white"
+                    title="Built by Islam Hafez"
+                >
+                    <Github className="w-4 h-4" />
+                    <span className="hidden sm:inline text-xs font-bold tracking-widest">Islam Hafez</span>
+                </a>
                 <button
                     onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
                     className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:bg-white/5 border border-white/10 bg-white/5 cursor-pointer text-zinc-300 hover:text-white"
