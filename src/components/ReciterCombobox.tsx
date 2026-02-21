@@ -110,7 +110,7 @@ export const ReciterCombobox = ({ reciters, selected, onSelect }: {
                                     <button
                                         key={r.identifier}
                                         onClick={() => selectItem(r)}
-                                        className={`w-full text-start px-5 py-3 text-sm flex items-center justify-between transition-colors
+                                        className={`cursor-pointer w-full text-start px-5 py-3 text-sm flex items-center justify-between transition-colors
                             ${i === highlightIdx ? 'bg-white/5' : 'hover:bg-white/5'}
                         `}
                                     >
