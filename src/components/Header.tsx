@@ -17,13 +17,11 @@ export const Header = ({
     return (
         <header className="glass-nav sticky top-0 z-30 px-6 py-4 flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
-                    <div className="absolute inset-0 bg-emerald-500 blur-[20px] opacity-20 rounded-full" />
-                    <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-sm font-bold text-zinc-950 shadow-lg shadow-emerald-500/20">
-                        Q
-                    </div>
-                </div>
-                <span className="text-xl font-bold tracking-tight text-white/90 hidden sm:block">Quranik</span>
+                <picture>
+                    <source media="(min-width: 768px)" srcSet="/brand.png" />
+                    <source media="(min-width: 0px)" srcSet="/brand-sm.png" />
+                    <img src="/brand.png" alt="Quranik" className="h-8 w-auto object-contain" draggable={false} />
+                </picture>
             </div>
 
             <div className="flex items-center gap-3">
