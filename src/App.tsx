@@ -71,6 +71,8 @@ const MainApp = () => {
             <div className="relative">
               <Search className="absolute start-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-500" />
               <input
+                name='search-surah'
+                id='search-surah'
                 type="text"
                 value={search}
                 onChange={e => setSearch(e.target.value)}
