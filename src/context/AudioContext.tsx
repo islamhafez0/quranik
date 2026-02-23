@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useRef, useEffect, useCallback } from 'react';
-import type { Surah, Reciter } from '../types/quran';
+import type { Surah, Reciter, SurahProgress, UserStats } from '../types/quran';
 import { useSurahs } from '../hooks/useSurahs';
 
 interface AudioContextType {
@@ -18,6 +18,8 @@ interface AudioContextType {
     setReciter: (r: Reciter) => void;
     nextSurah: () => void;
     prevSurah: () => void;
+    surahProgress: SurahProgress;
+    userStats: UserStats;
 }
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
@@ -37,9 +39,20 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
     const [volume, setVolume] = useState(Number(localStorage.getItem('quran_volume')) || 0.7);
     const [playbackSpeed, setPlaybackSpeed] = useState(1);
 
+    // New progress and stats state
+    const [surahProgress, setSurahProgress] = useState<SurahProgress>(() => {
+        const saved = localStorage.getItem('quran_progress');
+        return saved ? JSON.parse(saved) : {};
+    });
+    const [userStats, setUserStats] = useState<UserStats>(() => {
+        const saved = localStorage.getItem('quran_stats');
+        return saved ? JSON.parse(saved) : { totalListenTime: 0, surahsStarted: [], surahsCompleted: [] };
+    });
+
     const { surahs } = useSurahs();
 
     const audioRef = useRef<HTMLAudioElement | null>(null);
+    const lastTickRef = useRef<number>(0);
 
     // Using a ref to always have access to the latest surahs and nowPlaying inside the event listener
     const surahsRef = useRef(surahs);
@@ -59,16 +72,63 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
         }
 
         const handleTimeUpdate = () => {
-            setCurrentTime(audio.currentTime);
-            if (audio.currentTime > 0 && Math.floor(audio.currentTime) % 5 === 0) {
-                localStorage.setItem('quran_currentTime', audio.currentTime.toString());
+            const currentTimeValue = audio.currentTime;
+            setCurrentTime(currentTimeValue);
+
+            // Calculate delta for total listen time
+            if (lastTickRef.current > 0) {
+                const delta = currentTimeValue - lastTickRef.current;
+                if (delta > 0 && delta < 2) { // Ignore large jumps (seeks)
+                    setUserStats((prev: UserStats) => {
+                        const newStats = { ...prev, totalListenTime: prev.totalListenTime + delta };
+                        if (Math.floor(newStats.totalListenTime) % 10 === 0) {
+                            localStorage.setItem('quran_stats', JSON.stringify(newStats));
+                        }
+                        return newStats;
+                    });
+                }
             }
-            if ('mediaSession' in navigator && audio.duration && audio.currentTime) {
+            lastTickRef.current = currentTimeValue;
+
+            // Update high watermark progress
+            if (nowPlayingRef.current && audio.duration > 0) {
+                const progress = Math.min(100, Math.floor((currentTimeValue / audio.duration) * 100));
+                setSurahProgress((prev: SurahProgress) => {
+                    const currentSurahNum = nowPlayingRef.current!.number;
+                    if (progress > (prev[currentSurahNum] || 0)) {
+                        const newProgress = { ...prev, [currentSurahNum]: progress };
+                        if (progress % 5 === 0) {
+                            localStorage.setItem('quran_progress', JSON.stringify(newProgress));
+                        }
+                        return newProgress;
+                    }
+                    return prev;
+                });
+
+                // Track "started" surahs
+                if (progress > 1) {
+                    setUserStats((prev: UserStats) => {
+                        const currentSurahNum = nowPlayingRef.current!.number;
+                        if (!prev.surahsStarted.includes(currentSurahNum)) {
+                            const newStats = { ...prev, surahsStarted: [...prev.surahsStarted, currentSurahNum] };
+                            localStorage.setItem('quran_stats', JSON.stringify(newStats));
+                            return newStats;
+                        }
+                        return prev;
+                    });
+                }
+            }
+
+            if (currentTimeValue > 0 && Math.floor(currentTimeValue) % 5 === 0) {
+                localStorage.setItem('quran_currentTime', currentTimeValue.toString());
+            }
+
+            if ('mediaSession' in navigator && audio.duration && currentTimeValue) {
                 try {
                     navigator.mediaSession.setPositionState({
                         duration: audio.duration,
                         playbackRate: audio.playbackRate,
-                        position: audio.currentTime
+                        position: currentTimeValue
                     });
                 } catch { /* noop */ }
             }
@@ -86,6 +146,25 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
         const handleEnded = () => {
             setIsPlaying(false);
             localStorage.setItem('quran_currentTime', '0');
+            lastTickRef.current = 0;
+
+            // Track "completed" surahs
+            if (nowPlayingRef.current) {
+                const currentSurahNum = nowPlayingRef.current.number;
+                setSurahProgress((prev: SurahProgress) => {
+                    const newProgress = { ...prev, [currentSurahNum]: 100 };
+                    localStorage.setItem('quran_progress', JSON.stringify(newProgress));
+                    return newProgress;
+                });
+                setUserStats((prev: UserStats) => {
+                    if (!prev.surahsCompleted.includes(currentSurahNum)) {
+                        const newStats = { ...prev, surahsCompleted: [...prev.surahsCompleted, currentSurahNum] };
+                        localStorage.setItem('quran_stats', JSON.stringify(newStats));
+                        return newStats;
+                    }
+                    return prev;
+                });
+            }
 
             // Auto play next Surah logic
             const currentSurahs = surahsRef.current;
@@ -188,6 +267,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
         localStorage.setItem('quran_nowPlaying', JSON.stringify(surah));
         localStorage.setItem('quran_currentTime', '0');
         setCurrentTime(0);
+        lastTickRef.current = 0;
 
         audioRef.current.src = url;
         audioRef.current.play();
@@ -212,6 +292,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
         if (audioRef.current) {
             audioRef.current.currentTime = time;
             setCurrentTime(time);
+            lastTickRef.current = time;
             localStorage.setItem('quran_currentTime', time.toString());
         }
     }, []);
@@ -248,7 +329,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode, initialReciter
     const value = {
         isPlaying, nowPlaying, currentReciter, currentTime, duration, volume,
         playbackSpeed, playSurah, togglePlay, seek, setVolume, setPlaybackSpeed,
-        setReciter, nextSurah, prevSurah
+        setReciter, nextSurah, prevSurah, surahProgress, userStats
     };
 
     return <AudioContext.Provider value={value}>{children}</AudioContext.Provider>;

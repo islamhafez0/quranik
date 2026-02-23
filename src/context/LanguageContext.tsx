@@ -21,6 +21,14 @@ const translations = {
         'surah.ayahs': 'آيات',
         'surah.Meccan': 'مكية',
         'surah.Medinan': 'مدنية',
+        'stats.title': 'الإحصائيات',
+        'stats.totalTime': 'إجمالي مدة الاستماع',
+        'stats.surahsStarted': 'عدد السور التي تم البدء بها',
+        'stats.surahsCompleted': 'عدد السور المكتملة',
+        'stats.completion': 'نسبة التقدّم',
+        'stats.hours': 'ساعة',
+        'stats.minutes': 'دقيقة',
+        'stats.seconds': 'ثانية',
     },
     en: {
         'app.title': 'Listen to the Holy Quran',
@@ -34,6 +42,14 @@ const translations = {
         'surah.ayahs': 'Ayahs',
         'surah.Meccan': 'Meccan',
         'surah.Medinan': 'Medinan',
+        'stats.title': 'Statistics',
+        'stats.totalTime': 'Total Listen Time',
+        'stats.surahsStarted': 'Surahs Started',
+        'stats.surahsCompleted': 'Surahs Completed',
+        'stats.completion': 'Completion Rate',
+        'stats.hours': 'hrs',
+        'stats.minutes': 'min',
+        'stats.seconds': 'sec',
     }
 };
 

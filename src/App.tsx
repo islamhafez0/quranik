@@ -8,17 +8,19 @@ import type { Reciter } from './types/quran'
 import { Header } from './components/Header'
 import { SurahCard } from './components/SurahCard'
 import { BottomPlayer } from './components/BottomPlayer'
+import { StatisticsModal } from './components/StatisticsModal'
 import { Virtuoso } from 'react-virtuoso'
 import { normalizeArabic } from './utils/text'
 
 const MainApp = () => {
   const [search, setSearch] = useState('')
+  const [isStatsOpen, setIsStatsOpen] = useState(false)
   const { surahs, loading: surahsLoading, error: surahsError } = useSurahs()
   const { reciters } = useReciters()
   const {
     isPlaying, nowPlaying, currentTime, duration,
     currentReciter, playSurah, togglePlay, seek, setReciter, setVolume, volume,
-    nextSurah, prevSurah
+    nextSurah, prevSurah, surahProgress, userStats
   } = useAudio()
 
   const { t, language } = useLanguage()
@@ -51,7 +53,12 @@ const MainApp = () => {
 
   return (
     <div className="min-h-screen flex flex-col font-sans selection:bg-emerald-500/30">
-      <Header reciters={reciters} currentReciter={currentReciter} setReciter={setReciter} />
+      <Header
+        reciters={reciters}
+        currentReciter={currentReciter}
+        setReciter={setReciter}
+        onOpenStats={() => setIsStatsOpen(true)}
+      />
 
       <main className="flex-1 max-w-4xl w-full mx-auto px-2 md:px-6 pt-8 pb-40">
         <div className="mb-10 text-center space-y-6">
@@ -112,6 +119,7 @@ const MainApp = () => {
                       surah={surah}
                       active={nowPlaying?.number === surah.number}
                       isPlaying={isPlaying}
+                      progress={surahProgress[surah.number] || 0}
                       onClick={() => playSurah(surah)}
                     />
                   </div>
@@ -139,6 +147,12 @@ const MainApp = () => {
         handlePrev={prevSurah}
         seek={seek}
         setVolume={setVolume}
+      />
+
+      <StatisticsModal
+        isOpen={isStatsOpen}
+        onClose={() => setIsStatsOpen(false)}
+        stats={userStats}
       />
     </div>
   )

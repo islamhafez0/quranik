@@ -1,4 +1,4 @@
-import { Globe, Github } from 'lucide-react'
+import { Globe, Github, BarChart3 } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 import { ReciterCombobox } from './ReciterCombobox'
 import type { Reciter } from '../types/quran'
@@ -6,11 +6,13 @@ import type { Reciter } from '../types/quran'
 export const Header = ({
     reciters,
     currentReciter,
-    setReciter
+    setReciter,
+    onOpenStats
 }: {
     reciters: Reciter[]
     currentReciter: Reciter | null
-    setReciter: (r: Reciter) => void
+    setReciter: (r: Reciter) => void;
+    onOpenStats: () => void;
 }) => {
     const { language, setLanguage } = useLanguage()
 
@@ -35,6 +37,12 @@ export const Header = ({
                     <Github className="w-4 h-4" />
                     <span className="hidden sm:inline text-xs font-bold tracking-widest">Islam Hafez</span>
                 </a>
+                <button
+                    onClick={onOpenStats}
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:bg-white/5 border border-white/10 bg-white/5 cursor-pointer text-zinc-300 hover:text-white"
+                >
+                    <BarChart3 className="w-4 h-4 opacity-70" />
+                </button>
                 <button
                     onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
                     className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:bg-white/5 border border-white/10 bg-white/5 cursor-pointer text-zinc-300 hover:text-white"

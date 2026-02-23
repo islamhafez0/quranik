@@ -41,3 +41,13 @@ export interface Surah {
 export interface QuranData {
     surahs: Surah[];
 }
+
+export interface SurahProgress {
+    [surahNumber: number]: number; // percentage 0-100
+}
+
+export interface UserStats {
+    totalListenTime: number; // in seconds
+    surahsStarted: number[]; // array of surah numbers
+    surahsCompleted: number[]; // array of surah numbers
+}

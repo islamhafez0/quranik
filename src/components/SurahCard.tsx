@@ -5,11 +5,13 @@ export const SurahCard = ({
     surah,
     active,
     isPlaying,
+    progress = 0,
     onClick
 }: {
     surah: Surah
     active: boolean
     isPlaying: boolean
+    progress?: number
     onClick: () => void
 }) => {
     const { t, language } = useLanguage()
@@ -19,6 +21,11 @@ export const SurahCard = ({
             onClick={onClick}
             className={`surah-card group flex items-center gap-5 w-full text-start rounded-2xl px-5 py-4 cursor-pointer relative overflow-hidden ${active ? 'active' : ''}`}
         >
+            {/* Progress Background */}
+            <div
+                className="absolute inset-y-0 start-0 bg-emerald-500/5 group-hover:bg-emerald-500/10 transition-all duration-500 pointer-events-none"
+                style={{ width: `${progress}%` }}
+            />
             {/* Number / Playing indicator */}
             <div className="w-10 h-10 shrink-0 flex items-center justify-center rounded-xl bg-black/20 border border-white/5 group-hover:bg-black/40 transition-colors relative">
                 {active && isPlaying ? (
