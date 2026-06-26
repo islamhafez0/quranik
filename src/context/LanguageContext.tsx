@@ -1,91 +1,95 @@
+'use client'
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 type Language = 'ar' | 'en';
 
 interface LanguageContextType {
-    language: Language;
-    setLanguage: (lang: Language) => void;
-    t: (key: string) => string;
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
 }
 
 const translations = {
-    ar: {
-        'app.title': 'استمع للقرآن الكريم',
-        'app.subtitle': 'استمتع بأعذب التلاوات القرآنية',
-        'search.placeholder': 'ابحث عن سورة...',
-        'search.empty': 'لم يتم العثور على سور مطابقة لـ',
-        'reciter.select': 'اختر قارئاً',
-        'reciter.search': 'ابحث عن مقرئ...',
-        'reciter.empty': 'لم يتم العثور على قراء',
-        'error.retry': 'المحاولة مرة أخرى',
-        'surah.ayahs': 'آيات',
-        'surah.Meccan': 'مكية',
-        'surah.Medinan': 'مدنية',
-        'stats.title': 'الإحصائيات',
-        'stats.totalTime': 'إجمالي مدة الاستماع',
-        'stats.surahsStarted': 'عدد السور التي تم البدء بها',
-        'stats.surahsCompleted': 'عدد السور المكتملة',
-        'stats.completion': 'نسبة التقدّم',
-        'stats.hours': 'ساعة',
-        'stats.minutes': 'دقيقة',
-        'stats.seconds': 'ثانية',
-    },
-    en: {
-        'app.title': 'Listen to the Holy Quran',
-        'app.subtitle': 'Immerse yourself in beautiful recitations',
-        'search.placeholder': 'Search for a Surah...',
-        'search.empty': 'No chapters found matching',
-        'reciter.select': 'Select reciter',
-        'reciter.search': 'Search reciters...',
-        'reciter.empty': 'No reciters found',
-        'error.retry': 'Try Again',
-        'surah.ayahs': 'Ayahs',
-        'surah.Meccan': 'Meccan',
-        'surah.Medinan': 'Medinan',
-        'stats.title': 'Statistics',
-        'stats.totalTime': 'Total Listen Time',
-        'stats.surahsStarted': 'Surahs Started',
-        'stats.surahsCompleted': 'Surahs Completed',
-        'stats.completion': 'Completion Rate',
-        'stats.hours': 'hrs',
-        'stats.minutes': 'min',
-        'stats.seconds': 'sec',
-    }
+  ar: {
+    'app.title': 'استمع للقرآن الكريم',
+    'app.subtitle': 'استمتع بأعذب التلاوات القرآنية',
+    'search.placeholder': 'ابحث عن سورة...',
+    'search.empty': 'لم يتم العثور على سور مطابقة لـ',
+    'reciter.select': 'اختر قارئاً',
+    'reciter.search': 'ابحث عن مقرئ...',
+    'reciter.empty': 'لم يتم العثور على قراء',
+    'error.retry': 'المحاولة مرة أخرى',
+    'surah.ayahs': 'آيات',
+    'surah.Meccan': 'مكية',
+    'surah.Medinan': 'مدنية',
+    'stats.title': 'الإحصائيات',
+    'stats.totalTime': 'إجمالي مدة الاستماع',
+    'stats.surahsStarted': 'عدد السور التي تم البدء بها',
+    'stats.surahsCompleted': 'عدد السور المكتملة',
+    'stats.completion': 'نسبة التقدّم',
+    'stats.hours': 'ساعة',
+    'stats.minutes': 'دقيقة',
+    'stats.seconds': 'ثانية',
+  },
+  en: {
+    'app.title': 'Listen to the Holy Quran',
+    'app.subtitle': 'Immerse yourself in beautiful recitations',
+    'search.placeholder': 'Search for a Surah...',
+    'search.empty': 'No chapters found matching',
+    'reciter.select': 'Select reciter',
+    'reciter.search': 'Search reciters...',
+    'reciter.empty': 'No reciters found',
+    'error.retry': 'Try Again',
+    'surah.ayahs': 'Ayahs',
+    'surah.Meccan': 'Meccan',
+    'surah.Medinan': 'Medinan',
+    'stats.title': 'Statistics',
+    'stats.totalTime': 'Total Listen Time',
+    'stats.surahsStarted': 'Surahs Started',
+    'stats.surahsCompleted': 'Surahs Completed',
+    'stats.completion': 'Completion Rate',
+    'stats.hours': 'hrs',
+    'stats.minutes': 'min',
+    'stats.seconds': 'sec',
+  }
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    // Default to 'ar' unless user previously picked 'en'
-    const [language, setLanguageState] = useState<Language>(() => {
-        const saved = localStorage.getItem('quranik_lang');
-        return (saved === 'en' || saved === 'ar') ? saved : 'ar';
-    });
+  const [language, setLanguageState] = useState<Language>('ar');
 
-    useEffect(() => {
-        document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
-        document.documentElement.lang = language;
-        localStorage.setItem('quranik_lang', language);
-    }, [language]);
+  useEffect(() => {
+    const saved = localStorage.getItem('quranik_lang');
+    if (saved === 'en' || saved === 'ar') {
+      setLanguageState(saved);
+    }
+  }, []);
 
-    const setLanguage = (lang: Language) => {
-        setLanguageState(lang);
-    };
+  useEffect(() => {
+    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = language;
+    localStorage.setItem('quranik_lang', language);
+  }, [language]);
 
-    const t = (key: string): string => {
-        // @ts-ignore
-        return translations[language][key] || key;
-    };
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+  };
 
-    return (
-        <LanguageContext.Provider value={{ language, setLanguage, t }}>
-            {children}
-        </LanguageContext.Provider>
-    );
+  const t = (key: string): string => {
+    return (translations[language] as Record<string, string>)[key] || key;
+  };
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
 };
 
 export const useLanguage = () => {
-    const context = useContext(LanguageContext);
-    if (!context) throw new Error('useLanguage must be used within LanguageProvider');
-    return context;
+  const context = useContext(LanguageContext);
+  if (!context) throw new Error('useLanguage must be used within LanguageProvider');
+  return context;
 };
