@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo, useEffect } from 'react'
+import Link from 'next/link'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Search } from 'lucide-react'
 import { useSurahs } from '../hooks/useSurahs'
@@ -91,6 +92,21 @@ const MainApp = ({ initialSurahs }: { initialSurahs: Surah[] }) => {
               )}
             </h1>
             <p className={`text-zinc-500 ${language === 'ar' ? 'text-lg mt-2' : ''}`}>{t('app.subtitle')}</p>
+            <p className="text-xs text-zinc-600">
+              by{' '}
+              <a
+                href="https://islamhafez.vercel.app"
+                target="_blank"
+                rel="noreferrer"
+                className="text-zinc-500 hover:text-emerald-400 transition-colors"
+              >
+                Islam Hafez
+              </a>
+              {' · '}
+              <Link href="/about" className="text-zinc-500 hover:text-emerald-400 transition-colors">
+                About
+              </Link>
+            </p>
           </div>
 
           <div className="max-w-xl mx-auto relative group">
